@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Todo List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-app='todoApp'>
+    <div class='todos-container' ng-controller='todoController'>
+      <h1>Todos</h1>
+      <input ng-model='newTodo'/>
+      <button ng-click='addTodo()'>Submit</button>
+
+      <ul>
+        <li ng-repeat='todo in todos track by $index'
+            ng-click='removeTodo($index)'>{{todo}}</li>
+      </ul>
+
+      <hr/>
+
+      <pre>
+        {{todos | json}}
+      </pre>
+    </div>
+  </body>
+
+
+</html>
